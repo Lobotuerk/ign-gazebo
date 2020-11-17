@@ -29,11 +29,16 @@ int main()
 
   // Populate with some configuration, for example, the SDF file to load
   serverConfig.SetSdfFile("shapes.sdf");
+  serverConfig.SetPhysicsEngine("libignition-physics3-bullet-plugin.so");
 
   // Instantiate server
   ignition::gazebo::Server server(serverConfig);
 
   // Run the server unpaused for 100 iterations, blocking
+  server.Run(true /*blocking*/, 100 /*iterations*/, false /*paused*/);
+  std::cout << "Deleting sphere" << std::endl;
+  server.RequestRemoveEntity("sphere");
+  std::cout << "Deleted sphere" << std::endl;
   server.Run(true /*blocking*/, 100 /*iterations*/, false /*paused*/);
 
   return 0;

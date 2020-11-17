@@ -3,6 +3,8 @@
 This example demonstrates how to run a simulation server headless
 using the C++ API, instead of using Ignition Gazebo from the command line.
 
+(Forked) Changed to test Ign-Physics's Bullet3 plugin
+
 ## Build Instructions
 
 From this directory:
