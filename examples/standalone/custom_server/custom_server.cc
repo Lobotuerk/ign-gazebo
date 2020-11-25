@@ -29,7 +29,7 @@ int main()
 
   // Populate with some configuration, for example, the SDF file to load
   serverConfig.SetSdfFile("shapes.sdf");
-  serverConfig.SetPhysicsEngine("libignition-physics3-bullet-plugin.so");
+  serverConfig.SetPhysicsEngine("libignition-physics4-bullet-plugin.so");
 
   // Instantiate server
   ignition::gazebo::Server server(serverConfig);
