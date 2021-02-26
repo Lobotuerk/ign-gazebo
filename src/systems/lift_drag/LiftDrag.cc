@@ -219,10 +219,13 @@ void LiftDragPrivate::Update(EntityComponentManager &_ecm)
   // get linear velocity at cp in world frame
   const auto worldLinVel =
       _ecm.Component<components::WorldLinearVelocity>(this->linkEntity);
+  ignerr << "LinearVel at plugin " << worldLinVel->Data() << std::endl;
   const auto worldAngVel =
       _ecm.Component<components::WorldAngularVelocity>(this->linkEntity);
+  ignerr << "AngularVel at plugin " << worldAngVel->Data() << std::endl;
   const auto worldPose =
       _ecm.Component<components::WorldPose>(this->linkEntity);
+  ignerr << "WorldPose at plugin " << worldPose->Data() << std::endl;
 
   components::JointPosition *controlJointPosition = nullptr;
   if (this->controlJointEntity != kNullEntity)
@@ -434,6 +437,7 @@ void LiftDragPrivate::Update(EntityComponentManager &_ecm)
   const auto totalTorque = torque + cpWorld.Cross(force);
   Link link(this->linkEntity);
   link.AddWorldWrench(_ecm, force, totalTorque);
+  ignerr << "force at plugin " << force << std::endl;
 
   // Debug
   // auto linkName = _ecm.Component<components::Name>(this->linkEntity)->Data();
